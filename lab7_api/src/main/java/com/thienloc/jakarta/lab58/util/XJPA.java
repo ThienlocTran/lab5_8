@@ -1,4 +1,4 @@
-package com.thienloc.jakarta.lab58;
+package com.thienloc.jakarta.lab58.util;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

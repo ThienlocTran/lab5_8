@@ -1,6 +1,6 @@
 package com.thienloc.jakarta.lab58.servlet;
 
-import com.thienloc.jakarta.lab58.XJPA;
+import com.thienloc.jakarta.lab58.util.XJPA;
 import com.thienloc.jakarta.lab58.entity.Logs;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;

@@ -1,7 +1,7 @@
 package com.thienloc.jakarta.lab58.DAOImpl;
 
 import com.thienloc.jakarta.lab58.DAO.ShareDAO;
-import com.thienloc.jakarta.lab58.XJPA;
+import com.thienloc.jakarta.lab58.util.XJPA;
 import com.thienloc.jakarta.lab58.entity.Share;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;

@@ -1,10 +1,9 @@
 package com.thienloc.jakarta.lab58.DAOImpl;
 
 import com.thienloc.jakarta.lab58.DAO.VisitorDAO;
-import com.thienloc.jakarta.lab58.XJPA;
+import com.thienloc.jakarta.lab58.util.XJPA;
 import com.thienloc.jakarta.lab58.entity.Visitor;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
 
 public class VisitorDAOImpl implements VisitorDAO {
     @Override

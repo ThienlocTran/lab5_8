@@ -1,7 +1,7 @@
 package com.thienloc.jakarta.lab58.DAOImpl;
 
 import com.thienloc.jakarta.lab58.DAO.FavoriteDAO;
-import com.thienloc.jakarta.lab58.XJPA;
+import com.thienloc.jakarta.lab58.util.XJPA;
 import com.thienloc.jakarta.lab58.entity.Favorite;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
