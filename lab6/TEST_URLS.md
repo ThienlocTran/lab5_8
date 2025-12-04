@@ -267,7 +267,7 @@ curl -i -b cookies_admin.txt
 **Test 8.1: Không đăng nhập**
 ```bash
 curl -i http://localhost:8080/admin/like
-```
+```  117
 ✅ **Kỳ vọng:** 
 - Status: `302 Moved Temporarily`
 - Location: `http://localhost:8080/login`

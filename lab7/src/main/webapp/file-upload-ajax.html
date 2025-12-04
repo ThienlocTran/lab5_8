@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>File Upload AJAX - Bài 2</title>
+</head>
+<body>
+    <h1>File Upload with AJAX</h1>
+    <input type="file" id="fileInput">
+    <button onclick="uploadFile()">Upload File</button>
+    
+    <script>
+        function uploadFile() {
+            var fileInput = document.getElementById("fileInput");
+            var file = fileInput.files[0];
+            
+            if (!file) {
+                alert("Please select a file");
+                return;
+            }
+            
+            var formData = new FormData();
+            formData.append("file", file);
+            
+            var url = "http://localhost:8080/api/upload";
+            fetch(url, {
+                method: "POST",
+                body: formData
+            })
+            .then(resp => resp.json())
+            .then(data => {
+                console.log("Upload Result:", data);
+                alert("File uploaded successfully. Check console for details.");
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</body>
+</html>

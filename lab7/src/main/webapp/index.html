@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lab 7 - AJAX & REST API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        .lesson {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            background-color: #f9f9f9;
+        }
+        .lesson h2 {
+            margin: 0 0 10px 0;
+            color: #007bff;
+        }
+        .lesson p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .lesson a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .lesson a:hover {
+            background-color: #0056b3;
+        }
+        .points {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lab 7: Lập Trình Java #4 - AJAX & REST API</h1>
+        
+        <div class="lesson">
+            <h2>Bài 1: AJAX JSON Response</h2>
+            <p><span class="points">(2 điểm)</span></p>
+            <p>Sử dụng Fetch API để lấy dữ liệu JSON từ Servlet</p>
+            <a href="ajax-json-example.html">Mở Bài 1 →</a>
+        </div>
+
+        <div class="lesson">
+            <h2>Bài 2: AJAX File Upload</h2>
+            <p><span class="points">(2 điểm)</span></p>
+            <p>Upload file lên server sử dụng FormData và Fetch API</p>
+            <a href="file-upload-ajax.html">Mở Bài 2 →</a>
+        </div>
+
+        <div class="lesson">
+            <h2>Bài 3: RESTful Employee API</h2>
+            <p><span class="points">(2 điểm)</span></p>
+            <p>Xây dựng REST API hỗ trợ CRUD operations</p>
+            <p>Endpoints:</p>
+            <ul>
+                <li>GET /employees - Lấy tất cả nhân viên</li>
+                <li>GET /employees/ID - Lấy nhân viên theo ID</li>
+                <li>POST /employees - Thêm nhân viên mới</li>
+                <li>PUT /employees/ID - Cập nhật nhân viên</li>
+                <li>DELETE /employees/ID - Xóa nhân viên</li>
+            </ul>
+            <p><strong>Test bằng Postman hoặc cURL</strong></p>
+        </div>
+
+        <div class="lesson">
+            <h2>Bài 4: Employee Management Web Client</h2>
+            <p><span class="points">(2 điểm)</span></p>
+            <p>Tạo giao diện quản lý nhân viên tương tác với REST API</p>
+            <a href="employee-rest-client.html">Mở Bài 4 →</a>
+        </div>
+
+        <div class="lesson">
+            <h2>Bài 5: Yêu cầu Giảng viên Thêm</h2>
+            <p><span class="points">(2 điểm)</span></p>
+            <p>Sẽ được cung cấp thêm bởi giảng viên</p>
+        </div>
+
+        <hr style="margin-top: 30px; border: none; border-top: 1px solid #ddd;">
+        
+        <h2>Tổng cộng: 10 điểm</h2>
+        
+        <div style="margin-top: 20px; padding: 15px; background-color: #e7f3ff; border-radius: 4px;">
+            <h3>Hướng dẫn Testing:</h3>
+            <ul>
+                <li><strong>Bài 1 & 2:</strong> Test trực tiếp trên browser, kiểm tra console (F12)</li>
+                <li><strong>Bài 3:</strong> Test bằng Postman hoặc cURL (xem TEST_URLS.md)</li>
+                <li><strong>Bài 4:</strong> Test trực tiếp trên browser, thực hiện các thao tác CRUD</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
