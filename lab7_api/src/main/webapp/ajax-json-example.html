@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AJAX JSON Example - Bài 1</title>
+</head>
+<body>
+<h1>Fetch API - JSON Example</h1>
+<button onclick="loadData()">Load Employee Data</button>
+
+<script>
+    function loadData() {
+        var url = "http://localhost:8080/api/employee-json";
+        fetch(url, {method: "GET"})
+            .then(resp => resp.json())
+            .then(data => {
+                console.log("Employee Data:", data);
+                alert("Data loaded. Check console for details.");
+            })
+            .catch(error => console.error("Error:", error));
+    }
+</script>
+</body>
+</html>
