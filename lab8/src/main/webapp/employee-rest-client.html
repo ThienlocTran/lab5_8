@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Employee Management - REST Consumer</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        input { margin: 5px 0; padding: 5px; width: 200px; }
+        button { padding: 8px 15px; margin: 5px; cursor: pointer; }
+        table { border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        a { color: blue; cursor: pointer; text-decoration: underline; }
+    </style>
+</head>
+<body>
+<h1>Employee Management - REST API Client</h1>
+<div>
+    <input id="id" placeholder="Id?"><br>
+    <input id="name" placeholder="Name?"><br>
+    <input type="radio" id="male" name="gender" checked> Male
+    <input type="radio" id="female" name="gender"> Female<br>
+    <input id="salary" placeholder="Salary?"><br>
+    <hr>
+    <button onclick="ctrl.create()">Create</button>
+    <button onclick="ctrl.update()">Update</button>
+    <button onclick="ctrl.delete()">Delete</button>
+    <button onclick="ctrl.reset()">Reset</button>
+</div>
+<hr>
+<table border="1" style="width: 100%">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Salary</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody id="list"></tbody>
+</table>
+
+<script>
+    var ctrl = {
+        setForm(employee) {
+            document.getElementById("id").value = employee.id || "";
+            document.getElementById("name").value = employee.name || "";
+            document.getElementById("salary").value = employee.salary || "";
+            if(employee.gender) {
+                document.getElementById("male").checked = true;
+            } else {
+                document.getElementById("female").checked = true;
+            }
+        },
+
+        getForm() {
+            return {
+                id: document.getElementById("id").value,
+                name: document.getElementById("name").value,
+                gender: document.getElementById("male").checked,
+                salary: parseFloat(document.getElementById("salary").value)
+            }
+        },
+
+        fillToTable(employees) {
+            var rows = [];
+            employees.forEach(e => {
+                var row = `<tr>
+                        <td>${e.id}</td>
+                        <td>${e.name}</td>
+                        <td>${e.gender?'Male':'Female'}</td>
+                        <td>${e.salary}</td>
+                        <td><a onclick="ctrl.edit('${e.id}')">Edit</a></td>
+                    </tr>`;
+                rows.push(row);
+            });
+            document.getElementById("list").innerHTML = rows.join('');
+        },
+
+        loadAll() {
+            var url = "http://localhost:8080/employees";
+            fetch(url, {method: "GET"})
+                .then(resp => resp.json())
+                .then(employees => {
+                    this.fillToTable(employees);
+                })
+                .catch(error => console.error("Error:", error));
+        },
+
+        create() {
+            var data = this.getForm();
+            var url = "http://localhost:8080/employees";
+            fetch(url, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(data)
+            })
+                .then(resp => resp.json())
+                .then(json => {
+                    this.loadAll();
+                    this.reset();
+                })
+                .catch(error => console.error("Error:", error));
+        },
+
+        update() {
+            var data = this.getForm();
+            var url = `http://localhost:8080/employees/${data.id}`;
+            fetch(url, {
+                method: "PUT",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(data)
+            })
+                .then(resp => resp.json())
+                .then(json => {
+                    this.loadAll();
+                    this.reset();
+                })
+                .catch(error => console.error("Error:", error));
+        },
+
+        delete() {
+            var id = document.getElementById("id").value;
+            if(!id) {
+                alert("Please select an employee to delete");
+                return;
+            }
+            var url = `http://localhost:8080/employees/${id}`;
+            fetch(url, {method: "DELETE"})
+                .then(resp => resp.json())
+                .then(json => {
+                    this.loadAll();
+                    this.reset();
+                })
+                .catch(error => console.error("Error:", error));
+        },
+
+        reset() {
+            var employee = {id:"", name:"", salary:0, gender:true};
+            this.setForm(employee);
+        },
+
+        edit(id) {
+            var url = `http://localhost:8080/employees/${id}`;
+            fetch(url, {method: "GET"})
+                .then(resp => resp.json())
+                .then(employee => {
+                    this.setForm(employee);
+                })
+                .catch(error => console.error("Error:", error));
+        }
+    }
+
+    ctrl.loadAll();
+</script>
+</body>
+</html>

@@ -33,7 +33,7 @@ public class RestIO {
 
     public static <T> T readObject(HttpServletRequest req, Class<T> clazz)
             throws IOException {
-        String json = RestIO.readJson(r-eq);
+        String json = RestIO.readJson(req);
         T bean = mapper.readValue(json, clazz);
         return bean;
     }
