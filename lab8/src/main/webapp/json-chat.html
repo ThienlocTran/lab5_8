@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Simple Chat - Websockets</title>
-    <script src="js/text-chat.js"></script>
+    <title>JSON Chat - Websockets</title>
+    <script src="js/json-chat.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body { 
+            font-family: Arial, sans-serif; 
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
@@ -19,24 +19,27 @@
             background-color: #f9f9f9;
             margin-bottom: 10px;
         }
-        #message {
+        #client-count {
+            color: blue;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        input {
             width: 80%;
             padding: 8px;
-            font-size: 14px;
         }
         button {
             padding: 8px 15px;
-            font-size: 14px;
-            cursor: pointer;
         }
     </style>
 </head>
 <body onload="init()">
 
     <div id="messages"></div>
-    <div>
-        <input id="message" type="text" placeholder="Enter your message..." />
-        <button onclick="send()">Send</button>
-    </div>
+    <hr>
+    <b id="client-count">Chatters: 0</b>
+    <hr>
+    <input id="message" type="text" placeholder="Enter message...">
+    <button onclick="send()">Send</button>
 </body>
 </html>

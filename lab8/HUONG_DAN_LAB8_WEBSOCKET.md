@@ -496,7 +496,7 @@ mvn clean package
 ### 2. Cấu hình context path
 - Kiểm tra file `web.xml` để xác nhận context-path
 - URL endpoint: `ws://localhost:8080/[context]/[endpoint-url]`
-
+   
 ### 3. Kiểm tra Tomcat version
 - WebSocket yêu cầu Tomcat 7.0+
 - Bài lab này dùng Jakarta EE (Tomcat 10+)

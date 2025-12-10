@@ -8,7 +8,6 @@
     <file url="file://$PROJECT_DIR$/lab7_api/target/ROOT/WEB-INF/classes/META-INF/CSDL.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/lab7_api/target/classes/META-INF/CSDL.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/lab8/src/main/resources/CSDL.sql" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/lab8/target/ROOT/WEB-INF/classes/META-INF/CSDL.sql" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/lab8/target/classes/META-INF/CSDL.sql" dialect="GenericSQL" />
   </component>
 </project>

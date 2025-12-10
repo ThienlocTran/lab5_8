@@ -5,17 +5,17 @@ import jakarta.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.*;
 
-
 @ServerEndpoint("/text/chat")
 public class TextChatServerEndpoint {
-    private static final Map<String, Session> sessions = new HashMap<>();
+    // Duy trì danh sách session của các client đang kết nối
+    private static Map<String, Session> sessions = new HashMap<>();
 
-    private void broadcast(String message)
-    {
+    // Gửi message đến tất cả client đang kết nối
+    private void broadcast(String message) {
         sessions.forEach((id, session) -> {
-            try{
+            try {
                 session.getBasicRemote().sendText(message);
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         });
